@@ -187,7 +187,7 @@
   <script>
     // ---------- Helpers ----------
     const $ = (id) => document.getElementById(id);
-    const num = (id) => { const v = parseFloat($(id).value); return isNaN(v) ? 0 : v; };
+    const num = (id) => { const v = parseFloat($(id).value); return isNaN(v) || v < 0 ? 0 : v; };
     const txt = (id, fallback) => { const v = ($(id).value || '').trim(); return v === '' ? fallback : v; };
     const esc = (s) => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const fmtVND = (n) => Math.round(n).toLocaleString('vi-VN') + ' đ';
@@ -217,7 +217,13 @@
       $('billMonth').value = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
     })();
     loadData();
-    FIELD_IDS.forEach(id => $(id).addEventListener('input', saveData));
+    FIELD_IDS.forEach(id => {
+      const el = $(id);
+      el.addEventListener('input', () => {
+        if (el.type === 'number' && parseFloat(el.value) < 0) el.value = 0;
+        saveData();
+      });
+    });
 
     // ---------- Tính & hiển thị hóa đơn ----------
     function generateReceipt() {
