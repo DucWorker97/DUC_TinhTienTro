@@ -55,7 +55,7 @@
         <!-- Chi phí cố định (card con) -->
         <div class="rounded-xl bg-slate-50 border border-slate-200 p-3">
           <p class="text-xs font-bold text-blue-700 mb-2">🏠 CHI PHÍ CỐ ĐỊNH</p>
-          <div class="grid grid-cols-3 gap-3">
+          <div class="grid grid-cols-2 gap-3">
             <div>
               <label class="block text-xs text-blue-700 mb-1">Tiền phòng</label>
               <input id="tienPhong" type="number" value="2700000" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
@@ -63,6 +63,10 @@
             <div>
               <label class="block text-xs text-blue-700 mb-1">Tiền rác</label>
               <input id="tienRac" type="number" value="20000" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Tiền Wifi</label>
+              <input id="tienWifi" type="number" value="100000" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
             </div>
             <div>
               <label class="block text-xs text-blue-700 mb-1">Phụ thu</label>
@@ -159,6 +163,7 @@
           <!-- Summary -->
           <div class="text-sm space-y-2 mb-5">
             <div class="flex justify-between border-b border-dashed border-slate-200 pb-2"><span class="text-slate-500">⚡ Tổng điện tiêu thụ</span><span id="sumDien" class="font-semibold"></span></div>
+            <div class="flex justify-between border-b border-dashed border-slate-200 pb-2"><span class="text-slate-500">⚡ Điện chung (chia đều)</span><span id="sumDienChung" class="font-semibold text-amber-600"></span></div>
             <div class="flex justify-between border-b border-dashed border-slate-200 pb-2"><span class="text-slate-500">💧 Tổng nước tiêu thụ</span><span id="sumNuoc" class="font-semibold"></span></div>
             <div class="flex justify-between"><span class="text-slate-500">🏠 Tổng chi phí chung</span><span id="sumChung" class="font-bold text-blue-700"></span></div>
           </div>
@@ -189,7 +194,7 @@
     const fmtNum = (n) => { const r = Math.round(n * 100) / 100; return r.toLocaleString('vi-VN', { maximumFractionDigits: 2 }); };
 
     const FIELD_IDS = [
-      'billMonth','dienUnit','nuocUnit','tienPhong','tienRac','phuThu',
+      'billMonth','dienUnit','nuocUnit','tienPhong','tienRac','tienWifi','phuThu',
       'dienCu','dienMoi','nuocCu','nuocMoi',
       'ten1','ducDien','ducNgay','ducTraTruoc',
       'ten2','thaoDien','thaoNgay','thaoTraTruoc'
@@ -217,7 +222,7 @@
     // ---------- Tính & hiển thị hóa đơn ----------
     function generateReceipt() {
       const dienUnit = num('dienUnit'), nuocUnit = num('nuocUnit');
-      const tienPhong = num('tienPhong'), tienRac = num('tienRac'), phuThu = num('phuThu');
+      const tienPhong = num('tienPhong'), tienRac = num('tienRac'), tienWifi = num('tienWifi'), phuThu = num('phuThu');
 
       const totalDien = num('dienMoi') - num('dienCu');
       const totalNuoc = num('nuocMoi') - num('nuocCu');
@@ -230,7 +235,7 @@
 
       const sharedDien = totalDien - (ducDien + thaoDien);
       const sharedDienCost = sharedDien * dienUnit;
-      const totalShared = tienPhong + tienRac + nuocCost + phuThu + sharedDienCost;
+      const totalShared = tienPhong + tienRac + tienWifi + nuocCost + phuThu + sharedDienCost;
 
       const totalNgay = ducNgay + thaoNgay;
       let ducRatio, thaoRatio;
@@ -249,6 +254,7 @@
       $('receiptTitle').textContent = label;
 
       $('sumDien').textContent  = `${fmtNum(totalDien)} kWh`;
+      $('sumDienChung').textContent = `${fmtNum(sharedDien)} kWh (${fmtVND(sharedDienCost)})`;
       $('sumNuoc').textContent  = `${fmtNum(totalNuoc)} m³`;
       $('sumChung').textContent = fmtVND(totalShared);
 
