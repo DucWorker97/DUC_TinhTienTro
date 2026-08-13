@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DUC_TinhTienTro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    input[type=number] { -moz-appearance: textfield; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen py-5 px-3 text-slate-800">
+
+  <div class="max-w-md mx-auto space-y-5">
+
+    <!-- App header -->
+    <div class="text-center pt-1">
+      <h1 class="text-2xl font-extrabold text-blue-700">DUC_TinhTienTro</h1>
+      <p class="text-xs text-slate-400 mt-1">Chia tiền minh bạch · dễ chụp · dễ gửi</p>
+    </div>
+
+    <!-- ================= SECTION 1: INPUT FORM ================= -->
+    <div class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 overflow-hidden">
+      <div class="bg-blue-600 px-5 py-3">
+        <h2 class="text-white font-bold text-sm tracking-wide">📝 THÔNG TIN NHẬP</h2>
+      </div>
+
+      <div class="p-5 space-y-5">
+
+        <!-- Kỳ thanh toán -->
+        <div>
+          <label class="block text-xs font-semibold text-blue-700 mb-1">KỲ THANH TOÁN</label>
+          <input id="billMonth" type="month" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+        </div>
+
+        <!-- Đơn giá (card con) -->
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-3">
+          <p class="text-xs font-bold text-blue-700 mb-2">💵 ĐƠN GIÁ</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Điện (đ/kWh)</label>
+              <input id="dienUnit" type="number" value="4000" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Nước (đ/m³)</label>
+              <input id="nuocUnit" type="number" value="13000" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Chi phí cố định (card con) -->
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-3">
+          <p class="text-xs font-bold text-blue-700 mb-2">🏠 CHI PHÍ CỐ ĐỊNH</p>
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Tiền phòng</label>
+              <input id="tienPhong" type="number" value="2700000" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Tiền rác</label>
+              <input id="tienRac" type="number" value="20000" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Phụ thu</label>
+              <input id="phuThu" type="number" value="0" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Chỉ số công tơ (card con) -->
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-3 space-y-3">
+          <p class="text-xs font-bold text-blue-700">🔢 CHỈ SỐ CÔNG TƠ</p>
+          <div>
+            <p class="text-xs text-amber-600 font-semibold mb-1">⚡ Điện</p>
+            <div class="grid grid-cols-2 gap-3">
+              <input id="dienCu" type="number" value="0" placeholder="Chỉ số cũ" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+              <input id="dienMoi" type="number" value="0" placeholder="Chỉ số mới" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+          </div>
+          <div>
+            <p class="text-xs text-sky-600 font-semibold mb-1">💧 Nước</p>
+            <div class="grid grid-cols-2 gap-3">
+              <input id="nuocCu" type="number" value="0" placeholder="Chỉ số cũ" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+              <input id="nuocMoi" type="number" value="0" placeholder="Chỉ số mới" class="w-full rounded-lg border border-slate-200 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Người 1 -->
+        <div class="rounded-xl bg-blue-50/60 border border-blue-100 p-3">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-blue-600">👤</span>
+            <input id="ten1" type="text" value="Đức" class="flex-1 rounded-lg border border-blue-200 px-2 py-1.5 text-sm font-bold text-blue-700 bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Tên người 1" />
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Điện riêng</label>
+              <input id="ducDien" type="number" step="0.1" value="0" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Số ngày ở</label>
+              <input id="ducNgay" type="number" value="30" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Trả trước</label>
+              <input id="ducTraTruoc" type="number" value="0" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Người 2 -->
+        <div class="rounded-xl bg-cyan-50/60 border border-cyan-100 p-3">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-cyan-600">👤</span>
+            <input id="ten2" type="text" value="Thảo" class="flex-1 rounded-lg border border-cyan-200 px-2 py-1.5 text-sm font-bold text-cyan-700 bg-white focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="Tên người 2" />
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Điện riêng</label>
+              <input id="thaoDien" type="number" step="0.1" value="0" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-cyan-500 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Số ngày ở</label>
+              <input id="thaoNgay" type="number" value="30" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-cyan-500 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs text-blue-700 mb-1">Trả trước</label>
+              <input id="thaoTraTruoc" type="number" value="0" class="w-full rounded-lg border border-slate-200 px-2 py-2 focus:ring-2 focus:ring-cyan-500 outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-3 pt-1">
+          <button id="btnGenerate" class="flex-1 bg-blue-600 hover:bg-blue-700 active:scale-[.99] text-white font-bold py-3.5 rounded-xl shadow-sm shadow-blue-200 transition">
+            XUẤT HÓA ĐƠN
+          </button>
+          <button id="btnReset" class="px-4 bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold py-3.5 rounded-xl transition" title="Xóa dữ liệu đã lưu">
+            Đặt lại
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SECTION 2: RECEIPT / BILL ================= -->
+    <div id="receiptWrap" class="hidden space-y-3">
+      <div id="receipt" class="bg-white rounded-2xl shadow-lg overflow-hidden" style="border: 2px dashed #93c5fd;">
+
+        <!-- Header nổi bật -->
+        <div class="bg-gradient-to-br from-blue-700 to-blue-500 text-white px-6 py-5 text-center">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-blue-100">Hóa đơn tiền trọ</p>
+          <h2 id="receiptTitle" class="text-3xl font-extrabold mt-1"></h2>
+        </div>
+
+        <div class="p-6">
+          <!-- Summary -->
+          <div class="text-sm space-y-2 mb-5">
+            <div class="flex justify-between border-b border-dashed border-slate-200 pb-2"><span class="text-slate-500">⚡ Tổng điện tiêu thụ</span><span id="sumDien" class="font-semibold"></span></div>
+            <div class="flex justify-between border-b border-dashed border-slate-200 pb-2"><span class="text-slate-500">💧 Tổng nước tiêu thụ</span><span id="sumNuoc" class="font-semibold"></span></div>
+            <div class="flex justify-between"><span class="text-slate-500">🏠 Tổng chi phí chung</span><span id="sumChung" class="font-bold text-blue-700"></span></div>
+          </div>
+
+          <!-- Chi tiết từng người -->
+          <div id="personBreakdown" class="space-y-4"></div>
+
+          <div class="text-center text-[11px] text-slate-400 mt-6 pt-4 border-t border-dashed border-slate-200">
+            Cảm ơn & hẹn gặp lại 💙
+          </div>
+        </div>
+      </div>
+
+      <button id="btnDownload" class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-[.99] text-white font-bold py-3.5 rounded-xl shadow-sm shadow-emerald-200 transition">
+        📸 Tải ảnh hóa đơn
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    // ---------- Helpers ----------
+    const $ = (id) => document.getElementById(id);
+    const num = (id) => { const v = parseFloat($(id).value); return isNaN(v) ? 0 : v; };
+    const txt = (id, fallback) => { const v = ($(id).value || '').trim(); return v === '' ? fallback : v; };
+    const esc = (s) => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const fmtVND = (n) => Math.round(n).toLocaleString('vi-VN') + ' đ';
+    const fmtNum = (n) => { const r = Math.round(n * 100) / 100; return r.toLocaleString('vi-VN', { maximumFractionDigits: 2 }); };
+
+    const FIELD_IDS = [
+      'billMonth','dienUnit','nuocUnit','tienPhong','tienRac','phuThu',
+      'dienCu','dienMoi','nuocCu','nuocMoi',
+      'ten1','ducDien','ducNgay','ducTraTruoc',
+      'ten2','thaoDien','thaoNgay','thaoTraTruoc'
+    ];
+    const STORAGE_KEY = 'tienTro_v1';
+
+    function saveData() {
+      const data = {};
+      FIELD_IDS.forEach(id => data[id] = $(id).value);
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+    }
+    function loadData() {
+      let data = null;
+      try { data = JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) {}
+      if (data) FIELD_IDS.forEach(id => { if (data[id] !== undefined && data[id] !== '') $(id).value = data[id]; });
+    }
+
+    (function initMonth(){
+      const d = new Date();
+      $('billMonth').value = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+    })();
+    loadData();
+    FIELD_IDS.forEach(id => $(id).addEventListener('input', saveData));
+
+    // ---------- Tính & hiển thị hóa đơn ----------
+    function generateReceipt() {
+      const dienUnit = num('dienUnit'), nuocUnit = num('nuocUnit');
+      const tienPhong = num('tienPhong'), tienRac = num('tienRac'), phuThu = num('phuThu');
+
+      const totalDien = num('dienMoi') - num('dienCu');
+      const totalNuoc = num('nuocMoi') - num('nuocCu');
+      const nuocCost  = totalNuoc * nuocUnit;
+
+      const ten1 = txt('ten1', 'Người 1'), ten2 = txt('ten2', 'Người 2');
+      const ducDien = num('ducDien'), thaoDien = num('thaoDien');
+      const ducNgay = num('ducNgay'), thaoNgay = num('thaoNgay');
+      const ducTra  = num('ducTraTruoc'), thaoTra = num('thaoTraTruoc');
+
+      const sharedDien = totalDien - (ducDien + thaoDien);
+      const sharedDienCost = sharedDien * dienUnit;
+      const totalShared = tienPhong + tienRac + nuocCost + phuThu + sharedDienCost;
+
+      const totalNgay = ducNgay + thaoNgay;
+      let ducRatio, thaoRatio;
+      if (totalNgay <= 0) { ducRatio = 0.5; thaoRatio = 0.5; }
+      else { ducRatio = ducNgay / totalNgay; thaoRatio = thaoNgay / totalNgay; }
+
+      const ducShare  = totalShared * ducRatio;
+      const thaoShare = totalShared * thaoRatio;
+      const ducPrivate  = ducDien * dienUnit;
+      const thaoPrivate = thaoDien * dienUnit;
+      const ducFinal  = ducShare  + ducPrivate  - ducTra;
+      const thaoFinal = thaoShare + thaoPrivate - thaoTra;
+
+      const [yy, mm] = $('billMonth').value.split('-');
+      const label = (mm && yy) ? `${mm}/${yy}` : '--/----';
+      $('receiptTitle').textContent = label;
+
+      $('sumDien').textContent  = `${fmtNum(totalDien)} kWh`;
+      $('sumNuoc').textContent  = `${fmtNum(totalNuoc)} m³`;
+      $('sumChung').textContent = fmtVND(totalShared);
+
+      const personCard = (name, ratio, share, privateCost, tra, final, ring, badge, amount) => `
+        <div class="rounded-xl ${ring} border p-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold text-base text-slate-800">👤 ${esc(name)}</span>
+            <span class="text-[11px] ${badge} px-2 py-0.5 rounded-full font-semibold">${(ratio*100).toFixed(1)}% chung</span>
+          </div>
+          <div class="text-sm space-y-1 text-slate-500">
+            <div class="flex justify-between"><span>Chi phí chung</span><span class="text-slate-700">${fmtVND(share)}</span></div>
+            <div class="flex justify-between"><span>+ Điện riêng</span><span class="text-slate-700">${fmtVND(privateCost)}</span></div>
+            <div class="flex justify-between"><span>− Trả trước</span><span class="text-slate-700">${fmtVND(tra)}</span></div>
+          </div>
+          <div class="mt-3 pt-3 border-t border-dashed border-slate-300 flex justify-between items-center">
+            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Phải trả</span>
+            <span class="text-3xl font-extrabold ${amount}">${fmtVND(final)}</span>
+          </div>
+        </div>`;
+
+      $('personBreakdown').innerHTML =
+        personCard(ten1, ducRatio,  ducShare,  ducPrivate,  ducTra,  ducFinal,  'bg-blue-50/50 border-blue-200', 'bg-blue-100 text-blue-700', 'text-blue-700') +
+        personCard(ten2, thaoRatio, thaoShare, thaoPrivate, thaoTra, thaoFinal, 'bg-cyan-50/50 border-cyan-200', 'bg-cyan-100 text-cyan-700', 'text-cyan-700');
+
+      $('receiptWrap').classList.remove('hidden');
+      $('receiptWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      saveData();
+    }
+
+    // ---------- Tải ảnh hóa đơn ----------
+    function downloadReceipt() {
+      const node = $('receipt');
+      const [yy, mm] = $('billMonth').value.split('-');
+      const fname = `HoaDon_TienTro_${(mm||'00')}-${(yy||'0000')}.png`;
+      html2canvas(node, { scale: 2, backgroundColor: '#ffffff' }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = fname;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(() => alert('Không tạo được ảnh. Vui lòng thử lại.'));
+    }
+
+    // ---------- Đặt lại ----------
+    function resetData() {
+      if (!confirm('Xóa dữ liệu đã lưu và đặt lại giá trị mặc định?')) return;
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      location.reload();
+    }
+
+    $('btnGenerate').addEventListener('click', generateReceipt);
+    $('btnDownload').addEventListener('click', downloadReceipt);
+    $('btnReset').addEventListener('click', resetData);
+  </script>
+</body>
+</html>

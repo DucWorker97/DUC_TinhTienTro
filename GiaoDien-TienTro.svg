@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="1560" viewBox="0 0 440 1560" font-family="Segoe UI, Roboto, Arial, sans-serif">
+  <defs>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="440" height="1560" fill="#f1f5f9"/>
+
+  <!-- App title -->
+  <text x="220" y="40" text-anchor="middle" font-size="24" font-weight="800" fill="#1d4ed8">Máy Tính Tiền Trọ</text>
+  <text x="220" y="60" text-anchor="middle" font-size="11" fill="#94a3b8">Chia tiền minh bạch · dễ chụp · dễ gửi</text>
+
+  <!-- ============ SECTION 1: FORM ============ -->
+  <rect x="20" y="80" width="400" height="700" rx="16" fill="#ffffff" stroke="#e2e8f0"/>
+  <!-- form header bar -->
+  <path d="M20 96 a16 16 0 0 1 16 -16 h368 a16 16 0 0 1 16 16 v30 h-400 z" fill="#2563eb"/>
+  <text x="40" y="112" font-size="12" font-weight="700" fill="#ffffff">📝 THÔNG TIN NHẬP</text>
+
+  <!-- Kỳ thanh toán -->
+  <text x="40" y="150" font-size="11" font-weight="600" fill="#1d4ed8">KỲ THANH TOÁN</text>
+  <rect x="40" y="158" width="360" height="34" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="52" y="180" font-size="12" fill="#334155">08/2026</text>
+
+  <!-- Đơn giá card -->
+  <rect x="40" y="206" width="360" height="80" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="54" y="226" font-size="11" font-weight="700" fill="#1d4ed8">💵 ĐƠN GIÁ</text>
+  <text x="54" y="246" font-size="10" fill="#1d4ed8">Điện (đ/kWh)</text>
+  <rect x="54" y="252" width="160" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="64" y="270" font-size="11" fill="#334155">4000</text>
+  <text x="226" y="246" font-size="10" fill="#1d4ed8">Nước (đ/m³)</text>
+  <rect x="226" y="252" width="160" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="236" y="270" font-size="11" fill="#334155">13000</text>
+
+  <!-- Chi phí cố định card -->
+  <rect x="40" y="300" width="360" height="80" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="54" y="320" font-size="11" font-weight="700" fill="#1d4ed8">🏠 CHI PHÍ CỐ ĐỊNH</text>
+  <text x="54" y="340" font-size="10" fill="#1d4ed8">Tiền phòng</text>
+  <rect x="54" y="346" width="104" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="62" y="364" font-size="11" fill="#334155">2700000</text>
+  <text x="170" y="340" font-size="10" fill="#1d4ed8">Tiền rác</text>
+  <rect x="170" y="346" width="104" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="178" y="364" font-size="11" fill="#334155">20000</text>
+  <text x="286" y="340" font-size="10" fill="#1d4ed8">Phụ thu</text>
+  <rect x="286" y="346" width="100" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="294" y="364" font-size="11" fill="#334155">0</text>
+
+  <!-- Chỉ số công tơ card -->
+  <rect x="40" y="394" width="360" height="120" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="54" y="414" font-size="11" font-weight="700" fill="#1d4ed8">🔢 CHỈ SỐ CÔNG TƠ</text>
+  <text x="54" y="432" font-size="10" font-weight="600" fill="#d97706">⚡ Điện</text>
+  <rect x="54" y="438" width="160" height="26" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="64" y="455" font-size="10" fill="#94a3b8">Chỉ số cũ</text>
+  <rect x="226" y="438" width="160" height="26" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="236" y="455" font-size="10" fill="#94a3b8">Chỉ số mới</text>
+  <text x="54" y="482" font-size="10" font-weight="600" fill="#0284c7">💧 Nước</text>
+  <rect x="54" y="488" width="160" height="26" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="64" y="505" font-size="10" fill="#94a3b8">Chỉ số cũ</text>
+  <rect x="226" y="488" width="160" height="26" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="236" y="505" font-size="10" fill="#94a3b8">Chỉ số mới</text>
+
+  <!-- Người 1 (Đức) -->
+  <rect x="40" y="528" width="360" height="94" rx="10" fill="#eff6ff" stroke="#dbeafe"/>
+  <text x="54" y="548" font-size="12">👤</text>
+  <rect x="74" y="536" width="312" height="24" rx="8" fill="#ffffff" stroke="#bfdbfe"/>
+  <text x="84" y="552" font-size="12" font-weight="700" fill="#1d4ed8">Đức</text>
+  <text x="54" y="578" font-size="10" fill="#1d4ed8">Điện riêng</text>
+  <rect x="54" y="584" width="104" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/><text x="62" y="602" font-size="11" fill="#334155">0</text>
+  <text x="170" y="578" font-size="10" fill="#1d4ed8">Số ngày ở</text>
+  <rect x="170" y="584" width="104" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/><text x="178" y="602" font-size="11" fill="#334155">30</text>
+  <text x="286" y="578" font-size="10" fill="#1d4ed8">Trả trước</text>
+  <rect x="286" y="584" width="100" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/><text x="294" y="602" font-size="11" fill="#334155">0</text>
+
+  <!-- Người 2 (Thảo) -->
+  <rect x="40" y="632" width="360" height="94" rx="10" fill="#ecfeff" stroke="#cffafe"/>
+  <text x="54" y="652" font-size="12">👤</text>
+  <rect x="74" y="640" width="312" height="24" rx="8" fill="#ffffff" stroke="#a5f3fc"/>
+  <text x="84" y="656" font-size="12" font-weight="700" fill="#0e7490">Thảo</text>
+  <text x="54" y="682" font-size="10" fill="#1d4ed8">Điện riêng</text>
+  <rect x="54" y="688" width="104" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/><text x="62" y="706" font-size="11" fill="#334155">0</text>
+  <text x="170" y="682" font-size="10" fill="#1d4ed8">Số ngày ở</text>
+  <rect x="170" y="688" width="104" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/><text x="178" y="706" font-size="11" fill="#334155">30</text>
+  <text x="286" y="682" font-size="10" fill="#1d4ed8">Trả trước</text>
+  <rect x="286" y="688" width="100" height="28" rx="8" fill="#ffffff" stroke="#e2e8f0"/><text x="294" y="706" font-size="11" fill="#334155">0</text>
+
+  <!-- Buttons -->
+  <rect x="40" y="738" width="290" height="34" rx="10" fill="#2563eb"/>
+  <text x="185" y="760" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">XUẤT HÓA ĐƠN</text>
+  <rect x="340" y="738" width="60" height="34" rx="10" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="370" y="760" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Đặt lại</text>
+
+  <!-- ============ SECTION 2: RECEIPT ============ -->
+  <rect x="20" y="800" width="400" height="620" rx="16" fill="#ffffff" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- receipt header gradient -->
+  <path d="M22 816 a14 14 0 0 1 14 -14 h368 a14 14 0 0 1 14 14 v70 h-396 z" fill="url(#hdr)"/>
+  <text x="220" y="838" text-anchor="middle" font-size="10" letter-spacing="3" fill="#dbeafe">HÓA ĐƠN TIỀN TRỌ</text>
+  <text x="220" y="872" text-anchor="middle" font-size="30" font-weight="800" fill="#ffffff">08/2026</text>
+
+  <!-- summary -->
+  <text x="42" y="918" font-size="12" fill="#64748b">⚡ Tổng điện tiêu thụ</text>
+  <text x="398" y="918" text-anchor="end" font-size="12" font-weight="600" fill="#334155">200 kWh</text>
+  <line x1="42" y1="928" x2="398" y2="928" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+  <text x="42" y="948" font-size="12" fill="#64748b">💧 Tổng nước tiêu thụ</text>
+  <text x="398" y="948" text-anchor="end" font-size="12" font-weight="600" fill="#334155">10 m³</text>
+  <line x1="42" y1="958" x2="398" y2="958" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+  <text x="42" y="978" font-size="12" fill="#64748b">🏠 Tổng chi phí chung</text>
+  <text x="398" y="978" text-anchor="end" font-size="13" font-weight="700" fill="#1d4ed8">3.450.000 đ</text>
+
+  <!-- person card 1 -->
+  <rect x="42" y="998" width="356" height="150" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="56" y="1022" font-size="14" font-weight="700" fill="#1e293b">👤 Đức</text>
+  <rect x="320" y="1008" width="66" height="18" rx="9" fill="#dbeafe"/>
+  <text x="353" y="1021" text-anchor="middle" font-size="9" font-weight="600" fill="#1d4ed8">66.7% chung</text>
+  <text x="56" y="1046" font-size="11" fill="#64748b">Chi phí chung</text>
+  <text x="386" y="1046" text-anchor="end" font-size="11" fill="#334155">2.300.000 đ</text>
+  <text x="56" y="1066" font-size="11" fill="#64748b">+ Điện riêng</text>
+  <text x="386" y="1066" text-anchor="end" font-size="11" fill="#334155">120.000 đ</text>
+  <text x="56" y="1086" font-size="11" fill="#64748b">− Trả trước</text>
+  <text x="386" y="1086" text-anchor="end" font-size="11" fill="#334155">0 đ</text>
+  <line x1="56" y1="1100" x2="386" y2="1100" stroke="#cbd5e1" stroke-dasharray="4 3"/>
+  <text x="56" y="1128" font-size="10" font-weight="600" letter-spacing="1" fill="#64748b">PHẢI TRẢ</text>
+  <text x="386" y="1132" text-anchor="end" font-size="26" font-weight="800" fill="#1d4ed8">2.420.000 đ</text>
+
+  <!-- person card 2 -->
+  <rect x="42" y="1160" width="356" height="150" rx="12" fill="#ecfeff" stroke="#a5f3fc"/>
+  <text x="56" y="1184" font-size="14" font-weight="700" fill="#1e293b">👤 Thảo</text>
+  <rect x="320" y="1170" width="66" height="18" rx="9" fill="#cffafe"/>
+  <text x="353" y="1183" text-anchor="middle" font-size="9" font-weight="600" fill="#0e7490">33.3% chung</text>
+  <text x="56" y="1208" font-size="11" fill="#64748b">Chi phí chung</text>
+  <text x="386" y="1208" text-anchor="end" font-size="11" fill="#334155">1.150.000 đ</text>
+  <text x="56" y="1228" font-size="11" fill="#64748b">+ Điện riêng</text>
+  <text x="386" y="1228" text-anchor="end" font-size="11" fill="#334155">0 đ</text>
+  <text x="56" y="1248" font-size="11" fill="#64748b">− Trả trước</text>
+  <text x="386" y="1248" text-anchor="end" font-size="11" fill="#334155">0 đ</text>
+  <line x1="56" y1="1262" x2="386" y2="1262" stroke="#cbd5e1" stroke-dasharray="4 3"/>
+  <text x="56" y="1290" font-size="10" font-weight="600" letter-spacing="1" fill="#64748b">PHẢI TRẢ</text>
+  <text x="386" y="1294" text-anchor="end" font-size="26" font-weight="800" fill="#0e7490">1.150.000 đ</text>
+
+  <text x="220" y="1340" text-anchor="middle" font-size="10" fill="#94a3b8">Cảm ơn &amp; hẹn gặp lại 💙</text>
+
+  <!-- download button -->
+  <rect x="20" y="1360" width="400" height="38" rx="12" fill="#059669"/>
+  <text x="220" y="1384" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">📸 Tải ảnh hóa đơn</text>
+</svg>
